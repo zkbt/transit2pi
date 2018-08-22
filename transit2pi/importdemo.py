@@ -10,7 +10,7 @@ import numpy as np
 import planetplotlib as ppl
 
 # let's use that function we defined in the other file
-dome = ppl.create_dome_plot()
+domefig, domeax = ppl.create_dome_plot()
 
 # let's make a plot (which will go into the dome axes)
 N = 1000

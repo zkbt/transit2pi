@@ -64,12 +64,15 @@ def create_dome_plot(dpi=100, hideticks=True):
         if hideticks:
             plt.axis('off')
 
+    # return both the figure and the axes for this dome plot
+    return fi, ax
+
 if __name__ == '__main__':
     # code inside '__main__' will not be run if someone *imports* this module
     # the __main__ block runs only if this script is run on its own
 
     # create a space to plot into
-    domeax = create_dome_plot()
+    domefig, domeax = create_dome_plot()
 
     # plot a sine curve in our new dome plot
     x = np.linspace(0, 2*np.pi)
