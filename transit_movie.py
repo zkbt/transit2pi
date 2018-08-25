@@ -48,9 +48,9 @@ def animate(i):
 
 # call the animator.  blit=True means only re-draw the parts that have changed.
 anim = animation.FuncAnimation(fig, animate,
-                               frames=20, interval=20, blit=True)
+                               frames=100, interval=20, blit=True)   # To make transit go all the way around add 100 frames.previously 20.
 
-# save the animation as an mp4.  This requires ffmpeg or mencoder to be
+# save the animation as an gif. This code previously saved this animation as mp4. Which required ffmpeg or mencoder to be
 # installed.  The extra_args ensure that the x264 codec is used, so that
 # the video can be embedded in html5.  You may need to adjust this for
 # your system: for more information, see
