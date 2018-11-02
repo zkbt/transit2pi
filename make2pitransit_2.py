@@ -24,19 +24,23 @@ def make_transit(EP='Kepler-20 b',exo='Kepler-20'):
 
     '''
 
-    KT=NasaExoplanetArchive.query_planet(EP)
+    KT=NasaExoplanetArchive.query_planet(EP,all_columns = True)
+    # Need to update astroquery as dev ver
     #You want to write your planet as Kepler -# b or Tess -#
     period= KT['pl_orbper'].to('day').value # Planet's period from NasaExoplanetArchive
+    t0 = KT['pl_tranmid']
+    print t0
     print period #KT['pl_orbper']
     lc = hsl.download_kepler_lc(exo)  # Here import other Kepler planet data
     flattened = lc.flatten()
 
     folden= flattened.fold(period)
     folden.scatter()
-    binned = folden.bin(25)
+
 
     fig , ax  = ppl.create_dome_plot()
-    binned = folden.bin(25)
+    binned = folden.bin(50)
+    folden.scatter(ax=ax)
     binned.scatter(ax=ax)
     plt.savefig('Transit_CurveKepTest_2.png')
     return;
