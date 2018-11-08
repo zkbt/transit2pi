@@ -29,6 +29,9 @@ def make_transit(EP='Kepler-20 b',exo='Kepler-20'):
     period= KT['pl_orbper'].to('day').value # Planet's period from NasaExoplanetArchive
     print period #KT['pl_orbper']
     lc = hsl.download_kepler_lc(exo)  # Here import other Kepler planet data
+
+
+
     flattened = lc.flatten()
 
     folden= flattened.fold(period)
