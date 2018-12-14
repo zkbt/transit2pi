@@ -34,30 +34,31 @@ def create_dome_plot(dpi=100, hideticks=True):
         with the ax.
     '''
 
-    with plt.style.context('dark_background'):
+    # switch to a dark background for matplotlib
+    plt.style.use('dark_background')
+    
+    # make room for x and y labels, unless we're hiding the ticks
+    if hideticks:
+        left = 0
+        bottom = 0
+    else:
+        left = 0.01
+        bottom = 0.1
 
-        # make room for x and y labels, unless we're hiding the ticks
-        if hideticks:
-            left = 0
-            bottom = 0
-        else:
-            left = 0.01
-            bottom = 0.1
+    fi, ax = plt.subplots(1, 1, # create a 1x1 grid of ax objects,
+                          figsize=(36,1), # make the figure really long
+                          dpi=dpi, # set the dots per inch
+                          gridspec_kw=dict(left=left, # set the borders
+                                           right=1,
+                                           bottom=bottom,
+                                           top=1))
 
-        fi, ax = plt.subplots(1, 1, # create a 1x1 grid of ax objects,
-                              figsize=(36,1), # make the figure really long
-                              dpi=dpi, # set the dots per inch
-                              gridspec_kw=dict(left=left, # set the borders
-                                               right=1,
-                                               bottom=bottom,
-                                               top=1))
+    # set current axes to this new ax
+    plt.sca(ax)
 
-        # set current axes to this new ax
-        plt.sca(ax)
-
-        # get rid of the ticks and labels, if we want to hide ticks
-        if hideticks:
-            plt.axis('off')
+    # get rid of the ticks and labels, if we want to hide ticks
+    if hideticks:
+        plt.axis('off')
 
     # return both the figure and the axes for this dome plot
     return fi, ax

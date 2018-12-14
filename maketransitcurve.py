@@ -7,12 +7,12 @@ import planetplotlib as ppl
 
 
 def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
-	 
-	''' Here is how to use the function. 
-	
+
+	''' Here is how to use the function.
+
 	Parameters
 	---------------------
-	t0 : float 
+	t0 : float
 		#time of inferior conjunction
 	per: float
 		#orbital period
@@ -54,13 +54,9 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
 	#t = np.arange(input(),input(),0.001)
 
 	#save as pdf or png
-	plt.savefig('Transit_Curve1.png')
+	plotfilename = 'lightcurve-per={}+rp={}+a={}.png'.format(per, rp, a )
+	plt.savefig(plotfilename)
 
 	#flux = m.light_curve(params)                    #calculates light curve
 
-
-	return;
-
-	# animation function.  This is called sequentially
-	plt.show()
-
+	return t, y
