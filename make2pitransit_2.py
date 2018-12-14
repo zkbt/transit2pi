@@ -29,8 +29,8 @@ def make_transit(EP='Kepler-20 b',exo='Kepler-20'):
     #You want to write your planet as Kepler -# b or Tess -#
     period= KT['pl_orbper'].to('day').value # Planet's period from NasaExoplanetArchive
     t0 = KT['pl_tranmid']
-    print t0
-    print period #KT['pl_orbper']
+    print(t0)
+    print(period) #KT['pl_orbper']
     lc = hsl.download_kepler_lc(exo)  # Here import other Kepler planet data
 
 
