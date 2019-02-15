@@ -36,7 +36,7 @@ def create_dome_plot(dpi=100, hideticks=True):
 
     # switch to a dark background for matplotlib
     plt.style.use('dark_background')
-    
+
     # make room for x and y labels, unless we're hiding the ticks
     if hideticks:
         left = 0
@@ -62,6 +62,8 @@ def create_dome_plot(dpi=100, hideticks=True):
 
     # return both the figure and the axes for this dome plot
     return fi, ax
+
+
 
 if __name__ == '__main__':
     # code inside '__main__' will not be run if someone *imports* this module
