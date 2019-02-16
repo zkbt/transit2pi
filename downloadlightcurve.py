@@ -17,4 +17,4 @@ time_in_days = lc.time
 relative_flux = lc.flux
 
 N = len(time_in_days)
-print("Our light curve contains {} data points!".format(N))
+print(("Our light curve contains {} data points!".format(N)))

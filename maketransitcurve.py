@@ -6,7 +6,7 @@ import planetplotlib as ppl
 
 
 
-def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
+def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0,filename='Transit_Curve1.png') :
 
 	''' Here is how to use the function.
 
@@ -26,7 +26,6 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
 		#eccentricity
 	w:float
 		#longitude of periastron (in degrees)
-
 	'''
 
 	params = batman.TransitParams()    #object to store transit parameters
@@ -45,6 +44,7 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
 	t = np.arange(-per/2,per/2,0.001)
 	m = batman.TransitModel(params, t)    #initializes model
 	y = m.light_curve(params)
+
 	# First set up the figure, the axis, and the plot element we want to animate
 	fig , ax  = ppl.create_dome_plot()
 
@@ -52,11 +52,14 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
 	line, = ax.plot(t, y, lw=2)
 	ball, = ax.plot(t[0],y[0],marker= ".", markersize= 30)
 	#t = np.arange(input(),input(),0.001)
-
+	plt.ylim(0.985,1.005) # adjust y limits
 	#save as pdf or png
-	plotfilename = 'lightcurve-per={}+rp={}+a={}.png'.format(per, rp, a )
-	plt.savefig(plotfilename)
+	plt.savefig(filename)
 
 	#flux = m.light_curve(params)                    #calculates light curve
 
-	return t, y
+
+	return;
+
+	# animation function.  This is called sequentially
+	plt.show()
