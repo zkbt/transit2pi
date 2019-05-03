@@ -175,7 +175,7 @@ def animate_lightcurve_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
 			wri.grab_frame()
 
 			# provide an update
-			print('completed frame {}/{}'.format(i+1,len(centers), end='\r'))
+			print('completed frame {}/{}'.format(i+1,len(centers)), end='\r')
 
 
 if __name__ == '__main__':

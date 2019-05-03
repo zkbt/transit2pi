@@ -6,7 +6,10 @@ Here is the script that will help us test 3 cases in the Fiske Planetarium.
 '''
 
 import os
-os.path.mkdir('movies')
+try:
+    os.mkdir('movies')
+except FileExistsError:
+    pass
 
 # test different speeds
 for speed in [2e4]:
@@ -18,6 +21,9 @@ for speed in [2e4]:
             for stellar in [0.5, 1.0]:
                 # create a custom filename for this particular set of parameters
                 filename = 'movies/{}Rsun-speed={:.0f}X-minalpha={:03.0f}-decay={:03.0f}.mp4'.format(stellar, speed, 100*minalpha, 100*decay)
+
+                # print the movie we're trying to write
+                print(filename)
 
                 # create an animation
                 ad.animate_lightcurve_dots( a=0.0465*212/stellar,
