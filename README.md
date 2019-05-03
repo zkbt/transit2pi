@@ -1,4 +1,4 @@
-# transit2pi-experiment
+# transit2pi-experiments
 This is a set of experiments for developing a set of tools for visualizing transit light curves in a planetarium dome, to take advantage of a very big, 360 degree display! It is a collaboration between Taylor Washington and Zach Berta-Thompson.
 
 ## Installation
