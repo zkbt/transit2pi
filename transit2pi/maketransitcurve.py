@@ -1,12 +1,11 @@
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib import animation
 import batman
-import planetplotlib as ppl
+from .planetplotlib import create_dome_plot
 
 
 
-def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
+def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0, ylim=[0.95, 1.01], filename=None) :
 
 	''' Here is how to use the function.
 
@@ -29,6 +28,7 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
 
 	'''
 
+	# initialize the parameters of the batman 
 	params = batman.TransitParams()    #object to store transit parameters
 	params.t0 = t0                     #time of inferior conjunction
 	params.per = per                   #orbital period
@@ -46,16 +46,23 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0) :
 	m = batman.TransitModel(params, t)    #initializes model
 	y = m.light_curve(params)
 	# First set up the figure, the axis, and the plot element we want to animate
-	fig , ax  = ppl.create_dome_plot()
+	fig , ax  = create_dome_plot()
 
 	#ax = plt.axes(xlim=(-0.05, 0.05), ylim=(0.96, 1))
-	line, = ax.plot(t, y, lw=2)
-	ball, = ax.plot(t[0],y[0],marker= ".", markersize= 30)
+	line, = ax.plot(t, y, lw=3, color='white')
+	#ball, = ax.plot(t[0],y[0],marker= ".", markersize= 30)
 	#t = np.arange(input(),input(),0.001)
 
-	#save as pdf or png
-	plotfilename = 'lightcurve-per={}+rp={}+a={}.png'.format(per, rp, a )
-	plt.savefig(plotfilename)
+	# set the x and y limits of the plot
+	plt.xlim(-per/2, per/2)
+	plt.ylim(ylim[0], ylim[1])
+
+	# make up a filename if it doesn't exist
+	if filename is None:
+		filename = 'lightcurve-per={}+rp={}+a={}.png'.format(per, rp, a )
+
+	# save the figure to a file
+	plt.savefig(filename)
 
 	#flux = m.light_curve(params)                    #calculates light curve
 
