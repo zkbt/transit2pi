@@ -3,6 +3,8 @@ This is a small set of tools that extends matplotlib to be a bit better
 for making plots that look nice in a planetarium dome.
 '''
 
+from __future__ import print_function
+
 import matplotlib.pyplot as plt
 import numpy as np
 
