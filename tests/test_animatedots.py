@@ -1,4 +1,4 @@
-import transit2pi.animatedots as ad
+import transit2pi as t2p
 import numpy as np
 
 '''
@@ -26,7 +26,7 @@ for speed in [2e4]:
                 print(filename)
 
                 # create an animation
-                ad.animate_lightcurve_dots( a=0.0465*212/stellar,
+                t2p.make_transit_dots( a=0.0465*212/stellar,
                                             rp=0.10049/stellar,
                                             per=3.65/np.sqrt(stellar), #kludge
                                             speed=speed,

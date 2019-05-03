@@ -1,4 +1,4 @@
-from .animatedots import *
+from .maketransitdots import *
 from .maketransitcurve import *
-from .transitmovie import *
+from .maketransitmovie import *
 from .version import *

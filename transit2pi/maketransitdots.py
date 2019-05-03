@@ -8,7 +8,7 @@ from astropy.time import Time
 from .animatetools import get_writer
 
 
-def animate_lightcurve_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
+def make_transit_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
 					sigma=0.001, ylim=[None, None],
 					filename='transit-movie.mp4',
 					showtimelabel=False,	fps = 30,	speed = 500000.0,
@@ -149,4 +149,4 @@ def animate_lightcurve_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
 
 
 if __name__ == '__main__':
-	animate_lightcurve_dots()
+	make_transit_dots()
