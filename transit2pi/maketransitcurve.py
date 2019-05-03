@@ -25,10 +25,9 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0, ylim=[0.
 		#eccentricity
 	w:float
 		#longitude of periastron (in degrees)
-
 	'''
 
-	# initialize the parameters of the batman 
+	# initialize the parameters of the batman
 	params = batman.TransitParams()    #object to store transit parameters
 	params.t0 = t0                     #time of inferior conjunction
 	params.per = per                   #orbital period
@@ -45,6 +44,7 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0, ylim=[0.
 	t = np.arange(-per/2,per/2,0.001)
 	m = batman.TransitModel(params, t)    #initializes model
 	y = m.light_curve(params)
+
 	# First set up the figure, the axis, and the plot element we want to animate
 	fig , ax  = create_dome_plot()
 
@@ -66,4 +66,8 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0, ylim=[0.
 
 	#flux = m.light_curve(params)                    #calculates light curve
 
-	return t, y
+
+	return;
+
+	# animation function.  This is called sequentially
+	plt.show()
