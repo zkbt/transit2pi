@@ -12,4 +12,4 @@ This will link the installed version of the `transit2pi` package to your local r
 
 ## Contributors
 
-This package was written mostly by [Zach Berta-Thompson](https://github.com/zkbt), with contributions from [Taylor J. Washington](https://github.com/Tejorwa).
+This package was written by [Zach Berta-Thompson](https://github.com/zkbt) and [Taylor J. Washington](https://github.com/Tejorwa).

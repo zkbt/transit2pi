@@ -1,11 +1,9 @@
 from __future__ import print_function
 
-import maketransitcurve as mtc
-import numpy as np
+from .planetplotlib import *
 import matplotlib.animation as ani
-import matplotlib.pyplot as plt
 import batman
-import planetplotlib as ppl
+
 from astropy.time import Time
 
 def get_writer(filename, fps=30, **kw):
@@ -103,7 +101,7 @@ def animate_lightcurve_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
 	wri = get_writer(filename)
 
 	# First set up the figure, the axis, and the plot element we want to animate
-	fi , ax  = ppl.create_dome_plot()
+	fi , ax  = create_dome_plot()
 
 	tstep = speed/fps/(86400) # tstep is in days
 
@@ -177,7 +175,7 @@ def animate_lightcurve_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
 			wri.grab_frame()
 
 			# provide an update
-			print('completed frame {}/{}'.format(i+1,len(centers), end='\r'))
+			print('completed frame {}/{}'.format(i+1,len(centers)), end='\r')
 
 
 if __name__ == '__main__':

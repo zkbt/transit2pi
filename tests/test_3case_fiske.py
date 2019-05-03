@@ -1,4 +1,5 @@
-import maketransitcurve as mtc
+import transit2pi.maketransitcurve as mtc
+
 '''
 Here is the script that will help us test 3 cases in the Fiske Planetarium.
 '''
