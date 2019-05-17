@@ -8,7 +8,7 @@ from .planetplotlib import create_dome_plot
 
 
 
-def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0, ylim=[0.95, 1.01], filename=None) :
+def make_transit_curve(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0, ylim=[0.95, 1.01], filename=None) :
 
 	''' Here is how to use the function.
 
@@ -29,6 +29,9 @@ def make_transit_curve(t0=0,per=6.266,rp=0.017,a=6.85,inc=90,ecc=0,w=0, ylim=[0.
 	w:float
 		#longitude of periastron (in degrees)
 	'''
+
+	#
+	print('making a static plot of a transit curve')
 
 	# initialize the parameters of the batman
 	params = batman.TransitParams()    #object to store transit parameters
