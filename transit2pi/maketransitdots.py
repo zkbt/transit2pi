@@ -123,7 +123,7 @@ def make_transit_dots(t0=0,per=6.266,rp=0.1,a=6.85,inc=90,ecc=0,w=0,
 			# define a coordinate that is 0 at current time, and then fades
 			decaytime = params.per*decay
 			N = len(x)
-			weights = np.zeros_like(x).astype(np.float)
+			weights = np.zeros_like(x).astype(float)
 			weights[past] = np.maximum(maxalpha*np.exp(x[past]/decay), minalpha)
 
 			# define the colors of the points (alpha-method)

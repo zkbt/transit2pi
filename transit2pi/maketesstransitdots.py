@@ -15,8 +15,7 @@ def make_tess_transit_dots(t, flux, period=1, t0=0, ylim=[None, None],
 					minsize=10, maxsize=50,
 						cadence = 0.0034,
 						dpi=300
-					) :
-
+					):
 	'''
 
 	This function is based heavilty on `make_transit_curve` written
@@ -49,7 +48,7 @@ def make_tess_transit_dots(t, flux, period=1, t0=0, ylim=[None, None],
 	wri = get_writer(filename)
 
 	# First set up the figure, the axis, and the plot element we want to animate
-	fi , ax  = create_dome_plot(dpi=dpi, height=3w)
+	fi , ax  = create_dome_plot(dpi=dpi, height=3)
 
 	tstep = speed/fps/(86400) # tstep is in days
 
@@ -101,7 +100,7 @@ def make_tess_transit_dots(t, flux, period=1, t0=0, ylim=[None, None],
 			# define a coordinate that is 0 at current time, and then fades
 			decaytime = period*decay
 			N = len(x)
-			weights = np.zeros_like(x).astype(np.float)
+			weights = np.zeros_like(x).astype(float)
 			weights[past] = np.maximum(maxalpha*np.exp(x[past]/decay), minalpha)
 
 			# define the colors of the points (alpha-method)
