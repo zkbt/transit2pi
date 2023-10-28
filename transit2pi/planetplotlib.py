@@ -8,7 +8,7 @@ from __future__ import print_function
 import matplotlib.pyplot as plt
 import numpy as np
 
-def create_dome_plot(dpi=100, hideticks=True):
+def create_dome_plot(dpi=100, hideticks=True, height=1):
     '''
     This function creates a matplotlib figure that
     has a dark background and that is stretched out
@@ -52,7 +52,7 @@ def create_dome_plot(dpi=100, hideticks=True):
         bottom = 0.1
 
     fi, ax = plt.subplots(1, 1, # create a 1x1 grid of ax objects,
-                          figsize=(36,1), # make the figure really long
+                          figsize=(36,height), # make the figure really long
                           dpi=dpi, # set the dots per inch
                           gridspec_kw=dict(left=left, # set the borders
                                            right=1,
